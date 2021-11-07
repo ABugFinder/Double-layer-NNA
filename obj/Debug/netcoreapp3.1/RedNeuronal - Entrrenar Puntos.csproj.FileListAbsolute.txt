@@ -1,0 +1,13 @@
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\bin\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.exe
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\bin\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.deps.json
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\bin\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.runtimeconfig.json
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\bin\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.runtimeconfig.dev.json
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\bin\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.dll
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\bin\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.pdb
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\obj\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.csproj.AssemblyReference.cache
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\obj\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.AssemblyInfoInputs.cache
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\obj\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.AssemblyInfo.cs
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\obj\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.csproj.CoreCompileInputs.cache
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\obj\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.dll
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\obj\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.pdb
+C:\Users\bicho\source\repos\RedNeuronal - Entrrenar Puntos\RedNeuronal - Entrrenar Puntos\obj\Debug\netcoreapp3.1\RedNeuronal - Entrrenar Puntos.genruntimeconfig.cache
