@@ -7,7 +7,6 @@ namespace RedNeuronal___Entrrenar_Puntos
     {
         static void Main(string[] args)
         {
-
             int n = 2;
             int h = 4;
             int k = 2;
@@ -16,8 +15,8 @@ namespace RedNeuronal___Entrrenar_Puntos
             double alfa = 0.1;
 
             Punto[] puntos = new Punto[MAX_PUNTOS]; //redNeuronal.entrenar(x, claseCorrecta);
-            Punto clase1 = new Punto(100,300,1);
-            Punto clase2 = new Punto(300,100,3);
+            Punto clase1 = new Punto(100, 300, 1);
+            Punto clase2 = new Punto(300, 100, 3);
             int[] claseCorrecta = new int[2];
 
             Neurona redNeuronal = new Neurona(n, h, k, (float)alfa);
@@ -30,19 +29,33 @@ namespace RedNeuronal___Entrrenar_Puntos
 
                 for (int i = 0; i < puntos.Length; i++)
                 {
-                    puntos[i] = new Punto(0, 0);
+                    //coordenadaRandom();
+                    puntos[i] = new Punto(coordenadaRandom(), coordenadaRandom());
                 }
 
-                redNeuronal.printPesos();
+                //Console.WriteLine($"X: {coordenadaRandom()}, Y: {coordenadaRandom()}");
+
+                //redNeuronal.printPesos();
                 redNeuronal.entrenar(x, claseCorrecta);
                 Console.WriteLine("----");
-                redNeuronal.printPesos();
+                //redNeuronal.printPesos();
+                
+                //Console.WriteLine($"Punto 17 X:{puntos[14].X} Y: {puntos[14].Y}");
 
-                //Thread.Sleep(80);
+                Thread.Sleep(80);
                 //Console.Clear();
+
             }
             
 
+        }
+
+        public static int coordenadaRandom()
+        {
+            Random rndCoord = new Random();
+            int x = rndCoord.Next(0, 300);
+            
+            return x;
         }
     }
 
@@ -87,7 +100,7 @@ namespace RedNeuronal___Entrrenar_Puntos
         int h = 4; // capa oculta
         int k = 2; // salidas y[i]
 
-        int MAX_PUNTOS = 15;
+        //int MAX_PUNTOS = 15;
 
         float[] x;
         float[] y;
@@ -235,10 +248,14 @@ namespace RedNeuronal___Entrrenar_Puntos
             dy = new float[k];
             for (int i = 0; i < cs; i++) // cs
             {
-                if (/*dy != null && */this.y != null && this.fy != null)
+                //No está entrando a este caso poque y entre como nulo
+                //ToDo: fix error con y
+                if (/*dy != null &&*/ this.y != null /*&& this.fy != null*/)
                 {
                     float error = aciertos[i] - this.y[i];
                     dy[i] = error * df(this.fy[i]);
+                    Console.WriteLine(dy[i]);
+                    Thread.Sleep(1500);
                     errorSesgo += error * error;
                 }
             }
@@ -273,16 +290,19 @@ namespace RedNeuronal___Entrrenar_Puntos
 
             for (int i = 0; i < cs; i++)// pesos wh
             {
-                Console.WriteLine($"Antes i={i}");
                 bh[i] += dh[i] * alfa;
-                for (int j = 0; j < ce; k++)
+                for (int j = 0; j < ce; j++)
                 {
-                    //wh[j,i] += x[j] * dh[i] * alfa;
-                    Console.WriteLine($"Durante i={i}, j={j}");
+                    wh[j,i] += x[j] * dh[i] * alfa;
+                    //Console.WriteLine(wh[j, i]);
+                    //Thread.Sleep(1500);
+
                 }
-                Console.WriteLine($"Después i={i}");
+                //Thread.Sleep(1500);
             }
 
+            //Console.WriteLine($"El error {errorSesgo}");
+            //Thread.Sleep(1500);
             return (float)Math.Sqrt(errorSesgo);
         }
     }
