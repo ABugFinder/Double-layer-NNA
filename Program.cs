@@ -10,7 +10,7 @@ namespace RedNeuronal___Entrrenar_Puntos
 
             int n = 2;
             int h = 4;
-            int k = 3;
+            int k = 2;
 
             int MAX_PUNTOS = 15;
             double alfa = 0.1;
@@ -23,8 +23,8 @@ namespace RedNeuronal___Entrrenar_Puntos
             Neurona redNeuronal = new Neurona(n, h, k, (float)alfa);
             float[] x = new float[n];
             float[] y = new float[k];
-            
-            
+
+
             while (true)
             {
 
@@ -33,6 +33,9 @@ namespace RedNeuronal___Entrrenar_Puntos
                     puntos[i] = new Punto(0, 0);
                 }
 
+                redNeuronal.printPesos();
+                redNeuronal.entrenar(x, claseCorrecta);
+                Console.WriteLine("----");
                 redNeuronal.printPesos();
 
                 //Thread.Sleep(80);
@@ -82,7 +85,7 @@ namespace RedNeuronal___Entrrenar_Puntos
 
         int n = 2; // entradas x[i]
         int h = 4; // capa oculta
-        int k = 3; // salidas y[i]
+        int k = 2; // salidas y[i]
 
         int MAX_PUNTOS = 15;
 
@@ -207,12 +210,15 @@ namespace RedNeuronal___Entrrenar_Puntos
                 {
                     sumatoria += fh[j] * wy[j,i];
                 }
-                fy[i] = f(sumatoria);
+                this.fy[i] = f(sumatoria);
             }
 
             for (int j = 0; j < cs; j++)
             {
-                y[j] = (float)Math.Round(fy[j]);
+                if (this.fy != null && this.y != null)
+                {
+                    this.y[j] = (float)Math.Round(this.fy[j]);
+                }
             }
         }
 
@@ -229,21 +235,31 @@ namespace RedNeuronal___Entrrenar_Puntos
             dy = new float[k];
             for (int i = 0; i < cs; i++) // cs
             {
-                float error = aciertos[i] - y[i];
-                dy[i] = error * df(fy[i]);
-
-                errorSesgo += error * error;
+                if (/*dy != null && */this.y != null && this.fy != null)
+                {
+                    float error = aciertos[i] - this.y[i];
+                    dy[i] = error * df(this.fy[i]);
+                    errorSesgo += error * error;
+                }
             }
 
             dh = new float[h];
-            for (int i = 0; i < co; i++) // co
+            if (dh != null)
             {
-                float error = 0;
-                for (int j = 0; j < cs; j++)
+                for (int i = 0; i < co; i++) // co
                 {
-                    error += dy[k] * wy[j,k];
+                    //Console.WriteLine(co);
+                    float error = 0;
+                    for (int j = 0; j < cs; j++)
+                    {
+                        if (this.wy != null && dy != null)
+                        {
+                            //Console.WriteLine(cs);
+                            error += dy[j] * wy[i, j];
+                        }
+                        dh[i] = error * df(fh[i]);
+                    }
                 }
-                dh[i] = error * df(fh[i]);
             }
 
             for (int i = 0; i < cs; i++)// pesos wy
@@ -251,17 +267,20 @@ namespace RedNeuronal___Entrrenar_Puntos
                 by[i] += dy[i] * alfa;
                 for (int j = 0; j < co; j++)
                 {
-                    wy[k,j] += fh[k] * dy[j] * alfa;
+                    wy[j,i] += fh[j] * dy[i] * alfa;
                 }
             }
 
             for (int i = 0; i < cs; i++)// pesos wh
             {
+                Console.WriteLine($"Antes i={i}");
                 bh[i] += dh[i] * alfa;
                 for (int j = 0; j < ce; k++)
                 {
-                    wh[k,j] += x[k] * dh[j] * alfa;
+                    //wh[j,i] += x[j] * dh[i] * alfa;
+                    Console.WriteLine($"Durante i={i}, j={j}");
                 }
+                Console.WriteLine($"Después i={i}");
             }
 
             return (float)Math.Sqrt(errorSesgo);
